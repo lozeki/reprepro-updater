@@ -76,9 +76,7 @@ def _run_update_command(repo_dir, distro, commit):
     """Update the repo to add the files in this changes file."""
     command_argument = 'update' if commit else 'dumpupdate'
     update_command = ['reprepro', '-v', '-b', repo_dir,
-                      '--noskipold', command_argument, distro]                  
-    cleanup_command = ['reprepro', '-v', '-b', repo_dir, 'clearvanished']
-    try_run_command(cleanup_command)
+                      '--noskipold','--ignore=undefinedtarget', command_argument, distro]  
     return try_run_command(update_command)
 
 
