@@ -77,7 +77,7 @@ def _run_update_command(repo_dir, distro, commit):
     command_argument = 'update' if commit else 'dumpupdate'
     update_command = ['reprepro', '-v', '-b', repo_dir,
                       '--noskipold', command_argument, distro]                  
-    cleanup_command = ['reprepro', '-b', repo_dir, 'clearvanished','xenial']
+    cleanup_command = ['reprepro','clearvanished','xenial']
     try_run_command(cleanup_command)
     return try_run_command(update_command)
 
